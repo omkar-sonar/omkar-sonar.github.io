@@ -283,8 +283,103 @@
       border-radius: 2px;
     }
 
+    /* ── JOURNEY — CENTER LINE ── */
+    #journey { background: var(--bg); }
+
+    .timeline-center {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-center::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      background: var(--border);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      align-items: start;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .tl-item.visible { opacity: 1; transform: none; }
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-item:nth-child(odd)  .tl-card  { grid-column: 1; text-align: right; }
+    .tl-item:nth-child(odd)  .tl-mid   { grid-column: 2; }
+    .tl-item:nth-child(odd)  .tl-empty { grid-column: 3; }
+    .tl-item:nth-child(even) .tl-empty { grid-column: 1; }
+    .tl-item:nth-child(even) .tl-mid   { grid-column: 2; }
+    .tl-item:nth-child(even) .tl-card  { grid-column: 3; text-align: left; }
+
+    .tl-mid {
+      display: flex;
+      justify-content: center;
+      padding-top: 0.45rem;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--accent-light);
+      flex-shrink: 0;
+    }
+    .tl-item.is-current .tl-dot { background: var(--text); border-color: var(--text); }
+
+    .tl-card { padding: 0 1.5rem; }
+    .tl-period {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .tl-body {
+      display: inline-block;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 1.2rem 1.6rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-align: left;
+    }
+    .tl-item:nth-child(odd)  .tl-body:hover { transform: translateX(-4px); border-color: var(--accent-light); }
+    .tl-item:nth-child(even) .tl-body:hover { transform: translateX(4px);  border-color: var(--accent-light); }
+    .tl-item.is-current .tl-body { border-color: var(--accent); }
+
+    .tl-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .tl-org { font-size: 0.82rem; color: var(--accent); font-weight: 400; margin-bottom: 0.6rem; }
+    .tl-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border-radius: 2px;
+      background: var(--tag-bg);
+      color: var(--text-muted);
+    }
+    .tl-item.is-current .tl-badge { background: var(--text); color: var(--bg); }
+
     /* MUSIC */
-    #music { background: var(--bg); }
+    #music { background: var(--bg-card); }
     .music-layout {
       display: grid;
       grid-template-columns: 1fr 1.4fr;
@@ -437,6 +532,17 @@
       .hero-visual { display: none; }
       .nav-links { gap: 1.5rem; }
       section { padding: 5rem 5vw; }
+
+      .timeline-center::before { left: 6px; transform: none; }
+      .tl-item { grid-template-columns: 24px 1fr; }
+      .tl-item:nth-child(odd)  .tl-card,
+      .tl-item:nth-child(even) .tl-card  { grid-column: 2; text-align: left; }
+      .tl-item:nth-child(odd)  .tl-mid,
+      .tl-item:nth-child(even) .tl-mid   { grid-column: 1; }
+      .tl-item:nth-child(odd)  .tl-empty,
+      .tl-item:nth-child(even) .tl-empty { display: none; }
+      .tl-item:nth-child(odd)  .tl-body:hover,
+      .tl-item:nth-child(even) .tl-body:hover { transform: translateX(4px); }
     }
   </style>
 </head>
@@ -448,6 +554,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
       <li><a href="#music">Music</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -531,11 +638,96 @@
     </div>
   </section>
 
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <h2>Journey</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="timeline-center">
+
+        <!-- 1: odd → left -->
+        <div class="tl-item">
+          <div class="tl-card">
+            <p class="tl-period">2018 – 2022</p>
+            <div class="tl-body">
+              <h3>B.E. Electronics &amp; Telecom</h3>
+              <p class="tl-org">Savitribai Phule Pune University</p>
+              <span class="tl-badge">Education</span>
+            </div>
+          </div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <!-- 2: even → right -->
+        <div class="tl-item">
+          <div class="tl-empty"></div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-card">
+            <p class="tl-period">2022 – 2024</p>
+            <div class="tl-body">
+              <h3>R&amp;D Quality Engineer Associate</h3>
+              <p class="tl-org">Dassault Systèmes</p>
+              <span class="tl-badge">Industry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: odd → left -->
+        <div class="tl-item">
+          <div class="tl-card">
+            <p class="tl-period">2024</p>
+            <div class="tl-body">
+              <h3>R&amp;D Quality Engineer Specialist</h3>
+              <p class="tl-org">Dassault Systèmes</p>
+              <span class="tl-badge">Industry</span>
+            </div>
+          </div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <!-- 4: even → right (current) -->
+        <div class="tl-item is-current">
+          <div class="tl-empty"></div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-card">
+            <p class="tl-period">2024 – Present</p>
+            <div class="tl-body">
+              <h3>MS Data Science</h3>
+              <p class="tl-org">Northeastern University</p>
+              <span class="tl-badge">Current</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5: odd → left -->
+        <div class="tl-item">
+          <div class="tl-card">
+            <p class="tl-period">Jul – Dec 2025</p>
+            <div class="tl-body">
+              <h3>BI Data Engineer Co-op</h3>
+              <p class="tl-org">Bangor Savings Bank</p>
+              <span class="tl-badge">Co-op</span>
+            </div>
+          </div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-empty"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <div class="section-inner">
       <div class="section-header reveal">
-        <span class="section-num">02</span>
+        <span class="section-num">03</span>
         <h2>Projects</h2>
         <div class="divider"></div>
       </div>
@@ -605,7 +797,7 @@
   <section id="music">
     <div class="section-inner">
       <div class="section-header reveal">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <h2>Music</h2>
         <div class="divider"></div>
       </div>
@@ -634,7 +826,7 @@
   <section id="contact">
     <div class="section-inner">
       <div class="section-header reveal">
-        <span class="section-num">04</span>
+        <span class="section-num">05</span>
         <h2>Contact</h2>
         <div class="divider"></div>
       </div>
@@ -700,15 +892,26 @@
 
   <script>
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
           setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    reveals.forEach(el => revealObserver.observe(el));
+
+    const tlItems = document.querySelectorAll('.tl-item');
+    const tlObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 110);
+          tlObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    tlItems.forEach(el => tlObserver.observe(el));
   </script>
 
 </body>
