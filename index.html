@@ -261,6 +261,18 @@
       line-height: 1.7;
       flex: 1;
     }
+    .project-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    }
+.project-link:hover { border-color: var(--text); color: var(--text); }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
     .project-tag {
       font-size: 0.7rem;
@@ -508,7 +520,7 @@
         <p class="hero-label">Data Science &middot; ML &amp; Music</p>
         <h1>Omkar<br><em>Sonar</em></h1>
         <p class="hero-bio">
-          Data Science graduate with 2.5 years of industry experience — always thinking about the person on the other end of the data.
+          Data Science graduate with 2.5 years of industry experience - always thinking about the person on the other end of the data.
         </p>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -535,15 +547,16 @@
         <div class="about-text reveal">
           <p>I started out as a Quality Engineer, but data was always the thing I kept gravitating toward. The stats, the patterns, the math behind why things happen. That pull brought me to Northeastern University to study Data Science, and real-world experience in data engineering along the way made the learning stick.</p>
           <p>I love sports analytics, I geek out over statistics, and I think ML is fascinating because it sits right at the edge of what we can explain and what we can only observe.</p>
-          <p>When I'm not in data, I'm studying Indian classical music and playing the Santoor — an instrument with a hundred strings that still surprises me every time I sit down with it.</p>
+          <p>When I'm not in data, I'm studying Indian classical music and playing the Santoor - an instrument with a hundred strings that still surprises me every time I sit down with it.</p>
         </div>
         <div class="skills-list reveal">
           <div class="skill-group">
-            <h4>Machine Learning</h4>
+            <h4>ML & NLP</h4>
             <div class="tags">
-              <span class="tag">Python</span>
               <span class="tag">Scikit-learn</span>
-              <span class="tag">TensorFlow</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">Hugging Face</span>
             </div>
           </div>
           <div class="skill-group">
@@ -552,22 +565,25 @@
               <span class="tag">SQL</span>
               <span class="tag">SSIS</span>
               <span class="tag">dbt</span>
+              <span class="tag">Amazon Redshift</span>
             </div>
           </div>
           <div class="skill-group">
             <h4>Analytics &amp; Viz</h4>
             <div class="tags">
               <span class="tag">IBM Cognos</span>
-              <span class="tag">Pandas</span>
+              <span class="tag">Python</span>
               <span class="tag">Seaborn</span>
+              <span class="tag">Matplotlib</span>
             </div>
           </div>
           <div class="skill-group">
             <h4>Tools</h4>
             <div class="tags">
               <span class="tag">Git</span>
-              <span class="tag">Jupyter</span>
               <span class="tag">Linux</span>
+              <span class="tag">Azure DevOps</span>
+              <span class="tag">Shell Scripting</span>
             </div>
           </div>
         </div>
@@ -657,7 +673,20 @@
           <div class="tl-card">
             <p class="tl-period">Jan 2025 – Present</p>
             <div class="tl-body">
-              <h3>Graduate Teaching Assistant</h3>
+              <h3>Graduate Teaching Assistant - Essentials of Data Science</h3>
+              <p class="tl-org">Northeastern University</p>
+              <span class="tl-badge">Education</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-empty"></div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-card">
+            <p class="tl-period">Jan 2026 - Apr 2026</p>
+            <div class="tl-body">
+              <h3>Instructional Assistant - Introduction to Linear Algebra and Probability for Data Science</h3>
               <p class="tl-org">Northeastern University</p>
               <span class="tl-badge">Education</span>
             </div>
@@ -677,6 +706,19 @@
           <div class="tl-empty"></div>
         </div>
 
+        <div class="tl-item">
+          <div class="tl-empty"></div>
+          <div class="tl-mid"><div class="tl-dot"></div></div>
+          <div class="tl-card">
+            <p class="tl-period">Apr 2026</p>
+            <div class="tl-body">
+              <h3>Math Tutor - Statistics Through the Lens of AI</h3>
+              <p class="tl-org">Northeastern University</p>
+              <span class="tl-badge">Education</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -690,6 +732,48 @@
         <div class="divider"></div>
       </div>
       <div class="projects-grid reveal">
+        
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-num">05</span>
+            <a href="https://nucapstone.github.io/project-spring26-OmkarSonar24/" target="_blank" rel="noopener" class="project-link">Dashboard &#8594;</a>
+          </div>
+          <h3>Finsights - Customer Intelligence System for Bangor Savings Bank</h3>
+          <p>Applied unsupervised clustering and feature engineering on 8M+ banking transactions to build a customer segmentation system. Identified distinct spending profiles enabling targeted business strategies for stakeholders.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">Scikit-learn</span>
+            <span class="project-tag">Clustering</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-num">06</span>
+          </div>
+          <h3>NLP RAG Chatbot</h3>
+          <p>Built a retrieval-augmented generation pipeline over professor course notes using vector embeddings and semantic search. Enabled accurate, context-aware Q&amp;A over academic content, reducing manual document lookup time.</p>
+          <div class="project-tags">
+            <span class="project-tag">ChromaDB</span>
+            <span class="project-tag">LangChain</span>
+            <span class="project-tag">Hugging Face</span>
+            <span class="project-tag">Python</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <span class="project-num">03</span>
+          </div>
+          <h3>IT Systems Metrics Dashboard - Bangor Savings Bank</h3>
+          <p>Built end-to-end data pipelines into unified IT metrics platform using SSIS and SQL Server. Delivered Cognos dashboards with real-time visibility into 949 incidents and 1,938 work items - tracking MTTA, MTTR, cycle time, and sprint velocity for leadership.</p>
+          <div class="project-tags">
+            <span class="project-tag">SSIS</span>
+            <span class="project-tag">SQL Server</span>
+            <span class="project-tag">IBM Cognos</span>
+          </div>
+        </div>
 
         <div class="project-card">
           <div class="project-top">
@@ -714,19 +798,6 @@
             <span class="project-tag">SQL</span>
             <span class="project-tag">Python</span>
             <span class="project-tag">Clinical Analytics</span>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-top">
-            <span class="project-num">03</span>
-          </div>
-          <h3>IT Systems Metrics Dashboard</h3>
-          <p>Built end-to-end data pipelines into unified IT metrics platform using SSIS and SQL Server. Delivered Cognos dashboards with real-time visibility into 949 incidents and 1,938 work items — tracking MTTA, MTTR, cycle time, and sprint velocity for leadership.</p>
-          <div class="project-tags">
-            <span class="project-tag">SSIS</span>
-            <span class="project-tag">SQL Server</span>
-            <span class="project-tag">IBM Cognos</span>
           </div>
         </div>
 
@@ -758,7 +829,7 @@
       <div class="music-layout">
         <div class="music-text reveal">
           <h3>Playing the<br><em>Santoor &amp; Piano</em></h3>
-          <p>Outside of data, I study Indian classical music and play the Santoor and Piano. Music is math, music is patterns — but it's also something beyond all of that. It's the only thing you can't fully explain, only experience and feel.</p>
+          <p>Outside of data, I study Indian classical music and play the Santoor and Piano. Music is math, music is patterns - but it's also something beyond all of that. It's the only thing you can't fully explain, only experience and feel.</p>
           <a href="#contact" class="btn btn-outline" style="display:inline-block; margin-top:0.5rem;">Get in Touch</a>
         </div>
         <div class="reveal">
@@ -788,7 +859,7 @@
       <div class="contact-layout">
         <div class="contact-text reveal">
           <h3>Let's work<br><em>together</em></h3>
-          <p>Whether you have a project in mind, a question about my work, or just want to connect &mdash; I would love to hear from you. Currently open to data science, data engineering and ML opportunities.</p>
+          <p>Whether you have a project in mind, a question about my work, or just want to connect - I would love to hear from you. Currently open to data science, data engineering and ML opportunities.</p>
         </div>
         <div class="contact-links reveal">
 
